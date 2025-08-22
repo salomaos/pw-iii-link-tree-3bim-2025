@@ -1,0 +1,1 @@
+<p class="user-description">{{ $slot }}</p>
