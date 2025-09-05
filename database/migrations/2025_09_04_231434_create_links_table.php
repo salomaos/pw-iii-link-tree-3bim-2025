@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,9 +12,10 @@ return new class extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('url');
-            $table->string('description')->nullable();
-            $table->boolean('enable')->default(true);
+            $table->boolean('is_active')->default(true);
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }
